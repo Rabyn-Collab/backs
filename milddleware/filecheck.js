@@ -39,7 +39,7 @@ module.exports.updateFileCheck = (req, res, next) => {
     const oldImage = req.query.oldImage;
 
     fs.unlink(`.${oldImage}`, (err) => {
-      console.log(err);
+
     });
 
     const file = req.files.product_image;

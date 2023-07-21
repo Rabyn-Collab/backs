@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const productRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
 const fileUpload = require('express-fileupload');
-mongoose.set('strictQuery', false);
+// mongoose.set('strictQuery', false);
 
 mongoose.connect('mongodb+srv://Babyn900:moles900@cluster0.jzgyqaw.mongodb.net/Shopy').then((result) => {
   app.listen(5000);
@@ -25,7 +25,7 @@ app.use(fileUpload({
   createParentPath: true
 }));
 
-
+app.use('/uploads', express.static('uploads'))
 
 app.use(userRoutes);
 app.use(productRoutes);
