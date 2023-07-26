@@ -4,9 +4,22 @@ const cors = require('cors');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const productRoutes = require('./routes/productRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 const userRoutes = require('./routes/userRoutes');
 const fileUpload = require('express-fileupload');
+
 // mongoose.set('strictQuery', false);
+
+// let d = {
+//   title: 'hello'
+// };
+
+// const data = {
+
+// };
+
+// d.title = data.title || d.title;
+// console.log(d);
 
 mongoose.connect('mongodb+srv://Babyn900:moles900@cluster0.jzgyqaw.mongodb.net/Shopy').then((result) => {
   app.listen(5000);
@@ -29,6 +42,7 @@ app.use('/uploads', express.static('uploads'))
 
 app.use(userRoutes);
 app.use(productRoutes);
+app.use(orderRoutes);
 
 app.use((req, res) => {
   return res.status(404).json({
