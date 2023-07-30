@@ -16,6 +16,13 @@ const orderSchema = Joi.object({
 
 router.post('/api/orderAdd', checks.checkUser, validator.body(orderSchema), orderController.addOrder);
 
+router.get('/api/getUserOrder', checks.checkUser, orderController.getOrderByUser);
+
+router.get('/api/getOrder/:id', checks.checkUser, orderController.getOrderByUser);
+
+
+
+router.get('/api/getAllOrders', checks.checkAdmin, orderController.getAllOrders);
 
 
 module.exports = router;
