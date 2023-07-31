@@ -8,7 +8,7 @@ const validator = require('express-joi-validation').createValidator({});
 
 const orderSchema = Joi.object({
   totalPrice: Joi.number().required(),
-  orderItems: Joi.array().length(1).required()
+  orderItems: Joi.array().min(1).required()
 })
 
 
@@ -18,7 +18,7 @@ router.post('/api/orderAdd', checks.checkUser, validator.body(orderSchema), orde
 
 router.get('/api/getUserOrder', checks.checkUser, orderController.getOrderByUser);
 
-router.get('/api/getOrder/:id', checks.checkUser, orderController.getOrderByUser);
+router.get('/api/getOrder/:id', checks.checkUser, orderController.getOrderById);
 
 
 
