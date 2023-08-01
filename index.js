@@ -8,6 +8,22 @@ const orderRoutes = require('./routes/orderRoutes');
 const userRoutes = require('./routes/userRoutes');
 const fileUpload = require('express-fileupload');
 
+// const data = [{ id: 1, msg: 'hello' }, { id: 2, msg: 'sello' }];
+
+
+// const isExist = data.find((d) => d.id === 4);
+// if (isExist) {
+//   console.log('hello');
+// }
+
+
+// const ratings = [{ id: 1, rate: 5 }, { id: 2, rate: 4 }, { id: 3, rate: 3 }];
+
+// const total = ratings.reduce((a, b) => a + b.rate, 0);
+// console.log(total / ratings.length);
+
+
+
 // mongoose.set('strictQuery', false);
 
 // let d = {

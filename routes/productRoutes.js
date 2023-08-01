@@ -16,6 +16,7 @@ router.post('/api/add/product', checks.checkAdmin, checkfile.fileCheck, productC
 
 router.patch('/api/update/product/:id', checks.checkAdmin, checkfile.updateFileCheck, productController.updateProduct);
 
+router.patch('/api/add/review/:id', checks.checkUser, productController.addReview);
 
 
 router.delete('/api/remove/product/:id', checks.checkAdmin, productController.removeProduct);
