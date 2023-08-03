@@ -16,6 +16,10 @@ const loginSchema = Joi.object({
 router.post('/api/userLogin', validator.body(loginSchema), userController.userLogin);
 router.post('/api/userSignUp', userController.userRegister);
 router.get('/api/getUserProfile', checks.checkUser, userController.userProfile);
+
+router.get('/api/allUsers', checks.checkAdmin, userController.getAllUsers);
+
+
 router.patch('/api/userUpdate', checks.checkUser, userController.userUpdate);
 
 

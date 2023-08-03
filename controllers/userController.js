@@ -4,6 +4,23 @@ const jwt = require('jsonwebtoken');
 
 
 
+module.exports.getAllUsers = async (req, res) => {
+
+  try {
+    const response = await User.find();
+    return res.status(200).json(response);
+  } catch (err) {
+
+    return res.status(400).json({
+      status: 'error',
+      message: `${err}`
+    });
+  }
+
+
+}
+
+
 module.exports.userLogin = async (req, res) => {
   const { email, password } = req.body;
 
@@ -23,6 +40,7 @@ module.exports.userLogin = async (req, res) => {
       if (isValid) {
         const token = jwt.sign({ id: userExist._id, isAdmin: userExist.isAdmin }, 'jsonwebtoken');
         res.status(200).json({
+          id: userExist._id,
           email,
           token,
           isAdmin: userExist.isAdmin,
