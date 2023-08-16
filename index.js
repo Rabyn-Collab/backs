@@ -36,7 +36,7 @@ const fileUpload = require('express-fileupload');
 
 // d.title = data.title || d.title;
 // console.log(d);
-
+mongoose.set('strictQuery', false);
 mongoose.connect('mongodb+srv://Babyn900:moles900@cluster0.jzgyqaw.mongodb.net/Shopy').then((result) => {
   app.listen(5000);
 }).catch((err) => {

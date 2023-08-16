@@ -163,10 +163,19 @@ module.exports.userUpdate = async (req, res) => {
       userExist.shippingAddress = req.body.shippingAddress || userExist.shippingAddress;
 
       userExist.save();
+      const token = jwt.sign({ id: userExist._id, isAdmin: userExist.isAdmin }, 'jsonwebtoken');
 
       return res.status(201).json({
         status: 'success',
-        message: "successfully updated"
+        message: "successfully updated",
+        data: {
+          id: userExist._id,
+          email: userExist.email,
+          token,
+          isAdmin: userExist.isAdmin,
+          shippingAddress: userExist.shippingAddress,
+          fullname: userExist.fullname
+        }
       });
 
 
